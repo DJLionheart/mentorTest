@@ -1,17 +1,33 @@
 //JS Basics
 //Run npm test in the command line to test your solutions
 module.exports = {
-  // reverseIt:
+  reverseIt: str => {
+    return str.split('').reverse().join('');
+  },
 
   //uncomment and finish the reverseIt function. It will take in one parameter which is a String and
   //reverse it
 
-  // removeDups:
+  removeDups: arr => {
+    let newArr = [];
+    for(let i = 0; i < arr.length; i++) {
+      if(!newArr.includes(arr[i])) {
+        newArr.push(arr[i]);
+      }
+    }
+    return newArr;
+  },
 
   //uncomment and finish the removeDups function. It will take in one parameter which is an Array
   //remove all duplicates
 
-  // titleIt:
+  titleIt: str => {
+    let split = str.split(' ');
+    for(let i = 0; i < split.length; i++) {
+      split[i][0] = split[i][0].toUpperCase();
+    }
+    str = split.join(' ');
+  }
 
   //uncomment and finish the titleIt function. It will take in one parameter which is a String and
   //capitalize the first letter of each word
