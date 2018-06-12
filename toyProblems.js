@@ -23,21 +23,43 @@ module.exports = {
 
   titleIt: str => {
     let split = str.split(' ');
+    console.log("Split: ", split)
     for(let i = 0; i < split.length; i++) {
-      split[i][0] = split[i][0].toUpperCase();
+      // console.log('Split[i][0]: ', split[i][0])
+      split[i] = split[i].charAt(0).toUpperCase() + split[i].slice(1);
+      console.log('after: ', split[i])
     }
-    str = split.join(' ');
-  }
+    return split.join(' ');
+  },
 
   //uncomment and finish the titleIt function. It will take in one parameter which is a String and
   //capitalize the first letter of each word
 
-  // vowelCounter:
+  vowelCounter: str => {
+    let count = 0;
+    let vowels = ['a', 'e', 'i', 'o', 'u'];
+    for(let i = 0; i < str.length; i++) {
+      if(vowels.includes(str.charAt(i).toLowerCase())) {
+        count++
+      }
+    }
+    return count;
+  },
 
   //uncomment and finish the vowelCounter function. It will take in one parameter which is a String and
   //return the number of vowels in the string
 
-  // isPrime:
+  isPrime: num => {
+    // loop through all numbers two and above, checking to see if num % i is equal to 0.
+    for(let i = 2; i < num; i++) {
+      // If num % i IS equal to zero, return false, because that means num and i are not the only divisible numbers.
+      if(num % i === 0) {
+        return false;
+      }
+    }
+    // Any number that makes it past this if statement will be prime, except 1
+    return num > 1;
+  }
 
   //uncomment and finish the isPrime function. It will take in one parameter which is a Number and
   //return true if it is prime and false if it is not
